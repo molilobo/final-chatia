@@ -14,7 +14,7 @@ class Mensaje(models.Model):
         ('asistant', 'Asistente'),
     ]
     conversacion = models.ForeignKey(Conversacion, on_delete=models.CASCADE)
-    rol = models.CharField(max_length=1, choices=ROL_CHOIZES)
+    rol = models.CharField(max_length=20, choices=ROL_CHOIZES)
     contenido = models.TextField()
     creado = models.DateTimeField(auto_now_add=True)
     def __str__(self):
