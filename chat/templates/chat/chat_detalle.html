@@ -1,0 +1,27 @@
+{% extends "chat/base.html" %}
+
+{% block title %}{{ conv.titulo }}{% endblock %}
+
+{% block content %}
+<h2>{{ conv.titulo }}</h2>
+
+<div id="mensajes" class="mb-3">
+{% if mensajes %}
+    {% for msg in mensajes %}
+        <div class="alert {% if msg.rol == 'user' %}alert-primary{% else %}alert-secondary{% endif %}">
+            <strong>{{ msg.rol }}:</strong> {{ msg.contenido }}
+        </div>
+    {% endfor %}
+{% else %}
+    <p class="text-muted">Escribe el primer mensaje.</p>
+{% endif %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="text" name="mensaje" class="form-control" placeholder="Escribe tu mensaje...">
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </div>
+</form>
+{% endblock %}
