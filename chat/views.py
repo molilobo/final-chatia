@@ -11,11 +11,11 @@ from .models import Conversacion,Mensaje
 
 def obtener_respuest_llm(mensaje_historial):
     client = OpenAI(
-        base_url="https:///integrate.api.nvidia.com",
+        base_url="https://integrate.api.nvidia.com",
         api_key=settings.NVIDIA_API_KEY
     )
     comletion = client.chat.completions.create(
-        model = "met/llama-3.1-8b--instruct",
+        model = "meta/llama-3.1-8b-instruct",
         messages= mensaje_historial,
         temperature = 0.2,
         max_tokens=1024,
@@ -46,24 +46,24 @@ def chat_detalle(request,id):
         contenido = request.POST.get('mensaje', '').strip()
         print("contenido",contenido)
         if contenido :
-            m =  Mensaje.objects.create(
+            Mensaje.objects.create(
                 conversacion = conv,
                 rol= 'User',
                 contenido=contenido,
 
             )
-    #la api aqui
-        historial = [
-            {"role":"user"if m.rol == "User" else "assistant",
-             "content":m.contenido}
-            for m in conv.mensaje_set.order_by('-creado')
-        ]
-        respuesta = obtener_respuest_llm(historial)
-        Mensaje.objects.create(
-            conversacion = conv,
-            rol='assistant',
-            contenido=respuesta,
-        )
+            #la api aqui
+            historial = [
+                {"role":"user" if m.rol == "User" else "assistant",
+                 "content":m.contenido}
+                for m in conv.mensaje_set.order_by('-creado')
+            ]
+            respuesta = obtener_respuest_llm(historial)
+            Mensaje.objects.create(
+                conversacion = conv,
+                rol='assistant',
+                contenido=respuesta,
+            )
         return redirect('chat_detalle',id=conv.id)
     mensaje = conv.mensaje_set.order_by('-creado')
     return render(request,"chat/chat_detalle.html",{
