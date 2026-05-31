@@ -65,7 +65,7 @@ def chat_detalle(request,id):
                 contenido=respuesta,
             )
         return redirect('chat_detalle',id=conv.id)
-    mensaje = conv.mensaje_set.order_by('-creado')
+    mensaje = conv.mensaje_set.order_by('creado')
     return render(request,"chat/chat_detalle.html",{
             'conv':conv,
             'mensaje':mensaje})
