@@ -3,25 +3,39 @@
 {% block title %}{{ conv.titulo }}{% endblock %}
 
 {% block content %}
-<h2>{{ conv.titulo }}</h2>
+<div class="d-flex flex-column" style="height: 75vh;">
+    
+    <h5 class="mb-3 text-secondary">{{ conv.titulo }}</h5>
 
-<div id="mensajes" class="mb-3">
-{% if mensaje %}
-    {% for msg in mensaje %}
-        <div class="alert {% if msg.rol == 'user' %}alert-primary{% else %}alert-secondary{% endif %}">
-            <strong>{{ msg.rol }}:</strong> {{ msg.contenido }}
-        </div>
-    {% endfor %}
-{% else %}
-    <p class="text-muted">Escribe el primer mensaje.</p>
-{% endif %}
-</div>
-
-<form method="post">
-    {% csrf_token %}
-    <div class="input-group">
-        <input type="text" name="mensaje" class="form-control" placeholder="Escribe tu mensaje...">
-        <button class="btn btn-primary" type="submit">Enviar</button>
+    <!-- Área de mensajes -->
+    <div id="mensajes" class="flex-grow-1 overflow-auto mb-3 p-3 rounded" 
+         style="background:#f8f9fa; border: 1px solid #dee2e6;">
+        
+        {% if mensaje %}
+            {% for msg in mensaje %}
+                <div class="d-flex {% if msg.rol == 'User' %}justify-content-end{% else %}justify-content-start{% endif %} mb-2">
+                    <div class="p-3 rounded-3 shadow-sm" 
+                         style="max-width:75%; 
+                                background: {% if msg.rol == 'User' %}#0d6efd{% else %}#ffffff{% endif %};
+                                color: {% if msg.rol == 'User' %}#ffffff{% else %}#212529{% endif %};">
+                        {{ msg.contenido }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center text-muted mt-5">Escribe el primer mensaje.</p>
+        {% endif %}
     </div>
-</form>
+
+    <!-- Input -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="mensaje" class="form-control form-control-lg" 
+                   placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button class="btn btn-primary px-4" type="submit">Enviar</button>
+        </div>
+    </form>
+
+</div>
 {% endblock %}
