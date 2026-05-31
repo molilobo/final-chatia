@@ -15,7 +15,8 @@
 * Despliegue (url):
 * Contraseñas:
 * Cuenta Admin Site: molilobo/1234
-
+* Cuenta 1 prueba :pepe/12345678p
+* Cuenta 2 prueba :juan/12345678ju
 ## Recursos implementados y métodos disponibles para cada recurso
 
 ## Resumen parte obligatoria
