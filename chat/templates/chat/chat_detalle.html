@@ -28,14 +28,17 @@
     </div>
 
     <!-- Input -->
-    <form method="post">
-        {% csrf_token %}
-        <div class="input-group">
-            <input type="text" name="mensaje" class="form-control form-control-lg" 
-                   placeholder="Escribe tu mensaje..." autocomplete="off">
-            <button class="btn btn-primary px-4" type="submit">Enviar</button>
-        </div>
-    </form>
+<form hx-post="/chat/{{ conv.id }}/" 
+      hx-target="#mensajes" 
+      hx-swap="innerHTML"
+      hx-on="htmx:afterRequest: this.reset()">
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="text" name="mensaje" class="form-control form-control-lg" 
+               placeholder="Escribe tu mensaje..." autocomplete="off">
+        <button class="btn btn-primary px-4" type="submit">Enviar</button>
+    </div>
+</form>
 
 </div>
 <script>
