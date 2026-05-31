@@ -38,8 +38,10 @@
     </form>
 
 </div>
-    <script>
+<script>
+    window.onload = function() {
         const mensajes = document.getElementById('mensajes');
         mensajes.scrollTop = mensajes.scrollHeight;
-    </script>
+    }
+</script>
 {% endblock %}
