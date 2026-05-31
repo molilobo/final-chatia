@@ -11,7 +11,7 @@ from .models import Conversacion,Mensaje
 
 def obtener_respuest_llm(mensaje_historial):
     client = OpenAI(
-        base_url="https://integrate.api.nvidia.com",
+        base_url="https://integrate.api.nvidia.com/v1",
         api_key=settings.NVIDIA_API_KEY
     )
     comletion = client.chat.completions.create(
@@ -56,7 +56,7 @@ def chat_detalle(request,id):
             historial = [
                 {"role":"user" if m.rol == "User" else "assistant",
                  "content":m.contenido}
-                for m in conv.mensaje_set.order_by('-creado')
+                for m in conv.mensaje_set.order_by('creado')
             ]
             respuesta = obtener_respuest_llm(historial)
             Mensaje.objects.create(
