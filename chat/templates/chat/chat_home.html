@@ -3,6 +3,21 @@
 {% block title %}Chats{% endblock %}
 
 {% block content %}
-<h2>Bienvenido, {{ user.username }}</h2>
-<p>Aquí irá el chat.</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Tus conversaciones</h2>
+    <a href="/chat/nueva/" class="btn btn-primary">+ Nueva</a>
+</div>
+
+{% if conversaciones %}
+    <ul class="list-group">
+    {% for conv in conversaciones %}
+        <li class="list-group-item d-flex justify-content-between">
+            <a href="/chat/{{ conv.id }}/">{{ conv.titulo }}</a>
+            <small class="text-muted">{{ conv.creada|date:"d/m/Y H:i" }}</small>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-muted">No tienes conversaciones aún. ¡Crea una!</p>
+{% endif %}
 {% endblock %}
