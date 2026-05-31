@@ -6,8 +6,8 @@
 <h2>{{ conv.titulo }}</h2>
 
 <div id="mensajes" class="mb-3">
-{% if mensajes %}
-    {% for msg in mensajes %}
+{% if mensaje %}
+    {% for msg in mensaje %}
         <div class="alert {% if msg.rol == 'user' %}alert-primary{% else %}alert-secondary{% endif %}">
             <strong>{{ msg.rol }}:</strong> {{ msg.contenido }}
         </div>
