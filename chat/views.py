@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 
 from .models import Conversacion
+def home(request):
+    return render(request,"chat/home.html")
 @login_required
 def chat_home(request):
     conversaciones= Conversacion.objects.filter(
