@@ -6,7 +6,7 @@ from django.shortcuts import render ,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 
-from .models import Conversacion
+from .models import Conversacion,Mensaje
 def home(request):
     return render(request,"chat/home.html")
 @login_required
@@ -25,7 +25,19 @@ def nueva_conversacion(request):
 @login_required
 def chat_detalle(request,id):
     conv = get_object_or_404(Conversacion,id=id,usuario=request.user)
-    mensaje = conv.mensaje_set.order_by('-creada')
+
+    if request.method == 'POST':
+        contenido = request.POST.get('mensaje', '').strip()
+        print("contenido",contenido)
+        if contenido :
+            m =  Mensaje.objects.create(
+                conversacion = conv,
+                rol= 'User',
+                contenido=contenido,
+
+            )
+        return redirect('chat_detalle',id=conv.id)
+    mensaje = conv.mensaje_set.order_by('-creado')
     return render(request,"chat/chat_detalle.html",{
             'conv':conv,
             'mensaje':mensaje})
