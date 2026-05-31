@@ -7,6 +7,14 @@
     <title>{% block title %}ChatIA{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<script>
+    document.body.addEventListener('htmx:afterSwap', function(e) {
+        const mensajes = document.getElementById('mensajes');
+        if (mensajes) {
+            mensajes.scrollTop = mensajes.scrollHeight;
+        }
+    });
+</script>
 <body>
 
 <header class="bg-dark text-white p-3">
