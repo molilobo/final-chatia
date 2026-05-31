@@ -1,0 +1,10 @@
+{% for msg in mensajes %}
+    <div class="d-flex {% if msg.rol == 'User' %}justify-content-end{% else %}justify-content-start{% endif %} mb-2">
+        <div class="p-3 rounded-3 shadow-sm" 
+             style="max-width:75%; 
+                    background: {% if msg.rol == 'User' %}#0d6efd{% else %}#ffffff{% endif %};
+                    color: {% if msg.rol == 'User' %}#ffffff{% else %}#212529{% endif %};">
+            {{ msg.contenido }}
+        </div>
+    </div>
+{% endfor %}
