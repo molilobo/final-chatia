@@ -26,3 +26,20 @@ class LoginTest(TestCase):
             'password': 'wrongpass'
         })
         self.assertEqual(response.status_code, 200)
+from chat.models import Conversation  # ajusta el nombre si es diferente
+
+class ConversacionTest(TestCase):
+    
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username='testuser2',
+            password='testpass123'
+        )
+        self.client.login(username='testuser2', password='testpass123')
+    
+    def test_crear_conversacion(self):
+        response = self.client.post('/chat/nueva/', {
+            'titulo': 'Test chat'
+        })
+        self.assertEqual(response.status_code, 302)
