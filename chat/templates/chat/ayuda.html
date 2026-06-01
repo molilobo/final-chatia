@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Ayuda — ChatIA{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <h2 class="mb-4"> Ayuda y Documentación</h2>
+
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-body p-4">
+                <h4>¿Qué es ChatIA?</h4>
+                <p>ChatIA es un asistente conversacional basado en modelos de lenguaje (LLM). 
+                Puedes mantener conversaciones inteligentes y guardar tu historial.</p>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-body p-4">
+                <h4> Estructura de la aplicación</h4>
+                <ul>
+                    <li><strong>/</strong> — Página principal</li>
+                    <li><strong>/chat/</strong> — Lista de conversaciones</li>
+                    <li><strong>/chat/nueva/</strong> — Nueva conversación</li>
+                    <li><strong>/perfil/</strong> — Configuración de usuario</li>
+                    <li><strong>/ayuda/</strong> — Esta página</li>
+                    <li><strong>/admin/</strong> — Panel de administración</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-body p-4">
+                <h4>💬 ¿Cómo usar el chat?</h4>
+                <ol>
+                    <li>Inicia sesión con tu cuenta</li>
+                    <li>Crea una nueva conversación</li>
+                    <li>Escribe tu mensaje y pulsa Enviar</li>
+                    <li>El asistente responderá en segundos</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4">
+                <h4> Créditos</h4>
+                <p>Proyecto Final 2025-2026<br>
+                Desarrollado con Django + NVIDIA API + HTMX + Bootstrap 5</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
