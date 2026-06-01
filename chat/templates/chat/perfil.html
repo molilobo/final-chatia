@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Mi Perfil — ChatIA{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-0 rounded-4">
+            <div class="card-body p-5">
+
+                <h2 class="mb-4">⚙️ Mi Perfil</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Alias</label>
+                        <input type="text" name="alias" class="form-control"
+                               value="{{ perfil.alias }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Modelo</label>
+                        <input type="text" name="modelo" class="form-control"
+                               value="{{ perfil.modelo }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Temperatura (0.0 - 1.0)</label>
+                        <input type="number" name="temperatura" class="form-control"
+                               step="0.1" min="0" max="1"
+                               value="{{ perfil.temperatura }}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2">
+                        Guardar cambios
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
