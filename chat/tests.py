@@ -3,6 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from .models import Conversacion  # ajusta el nombre si es diferente
 
 class LoginTest(TestCase):
     
@@ -26,7 +27,7 @@ class LoginTest(TestCase):
             'password': 'wrongpass'
         })
         self.assertEqual(response.status_code, 200)
-from chat.models import Conversation  # ajusta el nombre si es diferente
+
 
 class ConversacionTest(TestCase):
     
