@@ -83,4 +83,4 @@ def perfil(request):
         perfil.temperatura = request.POST.get('temperatura',perfil.temperatura)
         perfil.save()
 
-    return render(request,"chat/perfil.hhtml",{'perfil': perfil})
+    return render(request,"chat/perfil.html",{'perfil': perfil})

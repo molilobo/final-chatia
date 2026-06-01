@@ -4,6 +4,7 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('chat/',views.chat_home,name='chat_home'),
     path('chat/nueva/',views.nueva_conversacion,name='nueva_conversacion'),
-    path('chat/<int:id>/',views.chat_detalle,name='chat_detalle')
+    path('chat/<int:id>/',views.chat_detalle,name='chat_detalle'),
     path("perfil/",views.perfil,name='perfil'),
+
 ]
