@@ -41,6 +41,10 @@
             {% if request.path != '/ayuda/' %}
             <li class="nav-item"><a class="nav-link text-white" href="/ayuda/">Ayuda</a></li>
             {% endif %}
+            {% if request.path != '/admin/' %}
+             <li class="nav-item"><a class="nav-link text-white" href="/admin/">Admin</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <form method="post" action="/logout/" class="d-inline">
                 {% csrf_token %}
@@ -48,6 +52,7 @@
                 style="text-decoration:none; padding: 8px 16px">Logout</button>
                 </form>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
