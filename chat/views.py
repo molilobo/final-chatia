@@ -1,7 +1,7 @@
 
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse ,JsonResponse
 from django.shortcuts import render ,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -84,3 +84,9 @@ def perfil(request):
         perfil.save()
 
     return render(request,"chat/perfil.html",{'perfil': perfil})
+def ayuda(request):
+    return render(request,"chat/ayuda.html")
+@login_required
+def api_chats(request):
+    conversaciones= Conversacion.objects.filter(usuario=request.user).values('id','titulo','creada')
+    return JsonResponse(list(conversaciones),safe=False)
