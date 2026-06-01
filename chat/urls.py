@@ -8,4 +8,5 @@ urlpatterns = [
     path("perfil/",views.perfil,name='perfil'),
     path("ayuda/",views.ayuda,name='ayuda'),
     path('api/chats/',views.api_chats,name='api_chats'),
+    path('chat/<int:id>/renombrar/', views.renombrar_conversacion, name='renombrar_conversacion'),
 ]
