@@ -44,3 +44,22 @@ class ConversacionTest(TestCase):
             'titulo': 'Test chat'
         })
         self.assertEqual(response.status_code, 302)
+class ChatTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username='testuser3',
+            password='testpass123'
+        )
+        self.client.login(username='testuser3', password='testpass123')
+        self.conv = Conversacion.objects.create(
+            usuario=self.user,
+            titulo='Test'
+        )
+
+    def test_enviar_mensaje(self):
+        response = self.client.post(f'/chat/{self.conv.id}/', {
+            'mensaje': 'Hola'
+        })
+        self.assertEqual(response.status_code, 200)
