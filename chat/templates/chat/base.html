@@ -27,16 +27,25 @@
 </header>
 
 <nav class="navbar navbar-expand bg-secondary">
-    <div class = "container-fluid">
+    <div class="container-fluid">
         <ul class="navbar-nav flex-row">
+            {% if request.path != '/' %}
             <li class="nav-item"><a class="nav-link text-white" href="/">Principal</a></li>
+            {% endif %}
+            {% if request.path != '/chat/' %}
             <li class="nav-item"><a class="nav-link text-white" href="/chat/">Chats</a></li>
+            {% endif %}
+            {% if request.path != '/perfil/' %}
             <li class="nav-item"><a class="nav-link text-white" href="/perfil/">Perfil</a></li>
+            {% endif %}
+            {% if request.path != '/ayuda/' %}
             <li class="nav-item"><a class="nav-link text-white" href="/ayuda/">Ayuda</a></li>
-            <li class="nav-item"><form method="post" action="/logout/" class="d-inline">
-            {% csrf_token %}
-            <button type="submit" class=" nav-link text-white btn-link"
-            style="text-decoration:none; padding: 8px 16px ">Logout</button>
+            {% endif %}
+            <li class="nav-item">
+                <form method="post" action="/logout/" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="nav-link text-white btn-link"
+                style="text-decoration:none; padding: 8px 16px">Logout</button>
                 </form>
             </li>
         </ul>
