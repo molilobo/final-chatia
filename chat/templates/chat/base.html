@@ -1,7 +1,13 @@
-
+{%  load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon2.png' %}">
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <meta charset="UTF-8">
     <title>{% block title %}ChatIA{% endblock %}</title>
@@ -10,10 +16,13 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-<header class="bg-dark text-white p-3">
+<header class="bg-dark text-white p-3" style="margin-top : 0 ;padding-top : 0;">
+    <img src = "{% static 'img/header2.png' %}"  alt="logo" height="100" >
     <a href="/" class="text-white text-decoration-none"><h1>ChatIA</h1></a>
     {% if user.is_authenticated %}
-        <span>{{ user.username }}</span>
+        <div class="text-center">
+        <span><h2>Bienvenido </h2><strong>{{ user.username }}</strong> </span>
+        </div>
     {% endif %}
 </header>
 
