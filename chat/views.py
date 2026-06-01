@@ -89,4 +89,13 @@ def ayuda(request):
 @login_required
 def api_chats(request):
     conversaciones= Conversacion.objects.filter(usuario=request.user).values('id','titulo','creada')
+@login_required
+def renombrar_conversacion(request, id):
+    conv = get_object_or_404(Conversacion, id=id, usuario=request.user)
+    if request.method == 'POST':
+        nuevo_titulo = request.POST.get('titulo', '').strip()
+        if nuevo_titulo:
+            conv.titulo = nuevo_titulo
+            conv.save()
+    return redirect('chat_home')
     return JsonResponse(list(conversaciones),safe=False)
