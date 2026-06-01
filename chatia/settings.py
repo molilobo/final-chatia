@@ -67,7 +67,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'chat.context_processors.metricas_globales',
+                'chat.context_processor.metricas_globales',
             ],
         },
     },
