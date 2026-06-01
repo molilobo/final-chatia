@@ -1,15 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lin - ChatIA</title>
-</head>
-<body>
- <h1>Iniciar Sesion</h1>
-<form method="post">
-    {%  csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
-</form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Iniciar Sesión - ChatIA{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+
+        <div class="card shadow-lg border-0 rounded-4">
+
+            <div class="card-body p-5">
+
+                <div class="text-center mb-4">
+                    <h1 class="display-6">🤖 ChatIA</h1>
+                    <p class="text-muted">
+                        Inicia sesión para continuar
+                    </p>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                {{ field.label }}
+                            </label>
+
+                            {{ field }}
+
+                            {% if field.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit"
+                            class="btn btn-primary w-100 py-2">
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
