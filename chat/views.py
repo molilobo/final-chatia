@@ -6,7 +6,7 @@ from django.shortcuts import render ,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from openai import OpenAI
-from .models import Conversacion,Mensaje
+from .models import Conversacion,Mensaje,PerfilUsuario
 
 
 def obtener_respuest_llm(mensaje_historial):
@@ -14,7 +14,7 @@ def obtener_respuest_llm(mensaje_historial):
         base_url="https://integrate.api.nvidia.com/v1",
         api_key=settings.NVIDIA_API_KEY
     )
-    comletion = client.chat.completions.create(
+    completion = client.chat.completions.create(
         model = "meta/llama-3.1-8b-instruct",
         messages= mensaje_historial,
         temperature = 0.2,
@@ -22,7 +22,7 @@ def obtener_respuest_llm(mensaje_historial):
         stream=False
 
     )
-    return comletion.choices[0].message.content
+    return completion.choices[0].message.content
 def home(request):
     return render(request,"chat/home.html")
 @login_required
@@ -73,3 +73,14 @@ def chat_detalle(request,id):
     return render(request,"chat/chat_detalle.html",{
             'conv':conv,
             'mensaje':mensaje})
+@login_required
+def perfil(request):
+    perfil, _ =PerfilUsuario.objects.get_or_create(usuario=request.user)
+
+    if request.method == 'POST':
+        perfil.alias =request.POST.get('alias', '')
+        perfil.modelo = request.POST.get('modelo',perfil.modelo)
+        perfil.temperatura = request.POST.get('temperatura',perfil.temperatura)
+        perfil.save()
+
+    return render(request,"chat/perfil.hhtml",{'perfil': perfil})

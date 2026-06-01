@@ -19,3 +19,11 @@ class Mensaje(models.Model):
     creado = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"{self.rol}: {self.contenido[:50]}"
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    alias = models.CharField(max_length=100)
+    modelo = models.CharField(max_length=100, default= "meta/llama-3.1-8b-instruct")
+    temperatura = models.FloatField(default= 0.2)
+
+    def __str__(self):
+        return f"Perfil de {self.usuario.username}"
