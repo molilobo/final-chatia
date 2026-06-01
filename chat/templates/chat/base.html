@@ -37,6 +37,15 @@
 
 <footer class="bg-dark text-white text-center p-3 mt-4">
     <p>ChatIA — Proyecto Final</p>
+    <div class ="container py-2 text-center text-muted small">
+        <span> Conversaciones totales : <strong>{{ total_conversaciones }}</strong></span>
+        <span> Mensajes totales : <strong>{{ total_mensajes }}</strong></span>
+        {% if user.is_authenticated %}
+            <span>Tus Conversaciones : <strong>{{ conv_usuario }}</strong></span>
+            <span>Tus  Mensajes :<strong>{{ mensa_usuario }}</strong></span>
+        {% endif %}
+
+    </div>
 </footer>
 <script>
     document.body.addEventListener('htmx:afterSwap', function(e) {
