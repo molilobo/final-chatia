@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="d-flex flex-row min-vh-100">
 
 <header class="bg-dark text-white p-3">
     <a href="/" class="text-white text-decoration-none"><h1>ChatIA</h1></a>
@@ -18,26 +18,28 @@
 </header>
 
 <nav class="navbar navbar-expand bg-secondary">
-    <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link text-white" href="/">Principal</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/chat/">Chats</a></li>
-        <li class="nav-item"><form method="post" action="/logout/" class="d-inline">
-        {% csrf_token %}
-        <button type="submit" class=" nav-link text-white btn-link"
-        style="text-decoration:none; padding: 8px 16px ">Logout</button>
-            </form>
-        </li>
-    </ul>
+    <div class = "container-fluid">
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item"><a class="nav-link text-white" href="/">Principal</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="/chat/">Chats</a></li>
+            <li class="nav-item"><form method="post" action="/logout/" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class=" nav-link text-white btn-link"
+            style="text-decoration:none; padding: 8px 16px ">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
 </nav>
 
-<main class="container mt-4">
+<main class="container mt-4 flex-grow-1">
     {% block content %}
     {% endblock %}
 </main>
 
 <footer class="bg-dark text-white text-center p-3 mt-4">
     <p>ChatIA — Proyecto Final</p>
-    <div class ="container py-2  text-white text-center text-muted small">
+    <div class ="container py-2   text-center  small">
         <span> Conversaciones totales : <strong>{{ total_conversaciones }}</strong></span>
         <span> Mensajes totales : <strong>{{ total_mensajes }}</strong></span>
         {% if user.is_authenticated %}
