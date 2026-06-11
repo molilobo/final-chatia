@@ -80,7 +80,7 @@ def perfil(request):
     if request.method == 'POST':
         perfil.alias =request.POST.get('alias', '')
         perfil.modelo = request.POST.get('modelo',perfil.modelo)
-        perfil.temperatura = request.POST.get('temperatura',perfil.temperatura)
+        perfil.temperatura = float(request.POST.get('temperatura',perfil.temperatura))
         perfil.save()
 
     return render(request,"chat/perfil.html",{'perfil': perfil})
