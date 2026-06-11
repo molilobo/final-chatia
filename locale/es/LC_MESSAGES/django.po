@@ -142,3 +142,6 @@ msgstr "Desarrollado con Django + NVIDIA API + HTMX + Bootstrap 5"
 
 msgid "Developed by"
 msgstr "Realizado por"
+
+msgid "Json summary"
+msgstr "Resumen Json"

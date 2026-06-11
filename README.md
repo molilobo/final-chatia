@@ -7,7 +7,7 @@
 * Nombre: Raúl Molina López
 * Titulación: Telemática
 * Cuenta en laboratorios: molilobo
-* Cuenta URJC: r.molina.2020@alumnosurjc.es
+* Cuenta URJC: r.molina.2020@alumnos.urjc.es
 * Vídeo básico (URL): [PENDIENTE]
 * Vídeo parte opcional (URL): [PENDIENTE]
 * Despliegue (URL): https://final-chatia.onrender.com
@@ -52,11 +52,12 @@ ChatIA es una aplicación web de chat conversacional desarrollada con Django que
 - **Endpoint JSON**: `/api/chats/` devuelve lista de conversaciones del usuario en formato JSON.
 - **Tests**: tests end-to-end para login, chat y creación de conversación.
 - **Deploy**: aplicación desplegada en Render y accesible en Internet.
-- **Favicon**: icono personalizado visible en el navegador.
+- 
 
 ---
 
 ## Lista partes opcionales
 
-* Nombre parte: Renombrar conversaciones — permite al usuario editar el título de cualquier conversación desde el sidebar.
-* Nombre parte: Favicon — icono personalizado de la aplicación visible en la pestaña del navegador.
+* **Renombrar** conversaciones — permite al usuario editar el título de cualquier conversación desde el sidebar.
+* **Favicon** — icono personalizado de la aplicación visible en la pestaña del navegador.
+* **Truciones-Localizadas** -hay dos idioas para la aina web ingles (el default) y español
