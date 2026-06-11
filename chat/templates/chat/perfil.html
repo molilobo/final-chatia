@@ -21,8 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">{% trans "Temperature (0.0 - 1.0)" %}</label>
-                        <p>EBUG {{ perfil.temperatura }}</p>
-                        <input type="number" name="temperatura" class="form-control"
+                        <input type="text" name="temperatura" class="form-control"
                                step="any" min="0" max="1" value="{{ perfil.temperatura }}">
                     </div>
                     <button type="submit" class="btn btn-primary w-100 py-2">{% trans "Save changes" %}</button>
