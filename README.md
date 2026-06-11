@@ -8,7 +8,7 @@
 * Titulación: Telemática
 * Cuenta en laboratorios: molilobo
 * Cuenta URJC: r.molina.2020@alumnos.urjc.es
-* Vídeo básico (URL): https://youtu.be/1zf3-9qbmyU
+* Vídeo básico (URL): https://youtu.be/sDuqBDhEA2E
 * Vídeo parte opcional (URL): [PENDIENTE]
 * Despliegue (URL): https://final-chatia.onrender.com
 * Usuarios y contraseñas:
