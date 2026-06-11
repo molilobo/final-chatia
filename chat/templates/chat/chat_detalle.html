@@ -1,21 +1,18 @@
 {% extends "chat/base.html" %}
+{% load i18n %}
 
 {% block title %}{{ conv.titulo }}{% endblock %}
 
 {% block content %}
 <div class="d-flex flex-column" style="height: 75vh;">
-    
     <h5 class="mb-3 text-secondary">{{ conv.titulo }}</h5>
-
-    <!-- Área de mensajes -->
-    <div id="mensajes" class="flex-grow-1 overflow-auto mb-3 p-3 rounded" 
+    <div id="mensajes" class="flex-grow-1 overflow-auto mb-3 p-3 rounded"
          style="background:#f8f9fa; border: 1px solid #dee2e6;">
-        
         {% if mensaje %}
             {% for msg in mensaje %}
                 <div class="d-flex {% if msg.rol == 'User' %}justify-content-end{% else %}justify-content-start{% endif %} mb-2">
-                    <div class="p-3 rounded-3 shadow-sm" 
-                         style="max-width:75%; 
+                    <div class="p-3 rounded-3 shadow-sm"
+                         style="max-width:75%;
                                 background: {% if msg.rol == 'User' %}#0d6efd{% else %}#ffffff{% endif %};
                                 color: {% if msg.rol == 'User' %}#ffffff{% else %}#212529{% endif %};">
                         {{ msg.contenido }}
@@ -23,23 +20,20 @@
                 </div>
             {% endfor %}
         {% else %}
-            <p class="text-center text-muted mt-5">Escribe el primer mensaje.</p>
+            <p class="text-center text-muted mt-5">{% trans "Write the first message." %}</p>
         {% endif %}
     </div>
-
-    <!-- Input -->
-<form hx-post="/chat/{{ conv.id }}/" 
-      hx-target="#mensajes" 
-      hx-swap="innerHTML"
-      hx-on="htmx:afterRequest: this.reset()">
-    {% csrf_token %}
-    <div class="input-group">
-        <input type="text" name="mensaje" class="form-control form-control-lg" 
-               placeholder="Escribe tu mensaje..." autocomplete="off">
-        <button class="btn btn-primary px-4" type="submit">Enviar</button>
-    </div>
-</form>
-
+    <form hx-post="/chat/{{ conv.id }}/"
+          hx-target="#mensajes"
+          hx-swap="innerHTML"
+          hx-on="htmx:afterRequest: this.reset()">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="mensaje" class="form-control form-control-lg"
+                   placeholder="{% trans 'Write your message...' %}" autocomplete="off">
+            <button class="btn btn-primary px-4" type="submit">{% trans "Send" %}</button>
+        </div>
+    </form>
 </div>
 <script>
     window.onload = function() {

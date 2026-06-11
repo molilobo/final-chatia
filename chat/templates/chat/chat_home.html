@@ -1,11 +1,12 @@
 {% extends "chat/base.html" %}
+{% load i18n %}
 
-{% block title %}Chats{% endblock %}
+{% block title %}{% trans "Chats" %}{% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>Tus conversaciones</h2>
-    <a href="/chat/nueva/" class="btn btn-primary">+ Nueva</a>
+    <h2>{% trans "Your conversations" %}</h2>
+    <a href="/chat/nueva/" class="btn btn-primary">+ {% trans "New" %}</a>
 </div>
 
 {% if conversaciones %}
@@ -16,7 +17,7 @@
             <a href="/chat/{{ conv.id }}/">{{ conv.titulo }}</a>
             <div class="d-flex align-items-center gap-2">
                 <small class="text-muted">{{ conv.creada|date:"d/m/Y H:i" }}</small>
-                <button class="btn btn-sm btn-outline-secondary" 
+                <button class="btn btn-sm btn-outline-secondary"
                         onclick="this.closest('li').querySelector('.form-renombrar').classList.toggle('d-none')">✏️</button>
             </div>
         </div>
@@ -24,13 +25,13 @@
             {% csrf_token %}
             <div class="input-group input-group-sm">
                 <input type="text" name="titulo" class="form-control" value="{{ conv.titulo }}">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
             </div>
         </form>
-    </li>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
-    <p class="text-muted">No tienes conversaciones aún. ¡Crea una!</p>
+    <p class="text-muted">{% trans "You have no conversations yet. Create one!" %}</p>
 {% endif %}
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends "chat/base.html" %}
+{% load i18n %}
 
-{% block title %}Inicio{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
-<h2>Bienvenido a ChatIA</h2>
-<a href="/chat/" class="btn btn-primary">Ir al chat</a>
+<h2>{% trans "Welcome to ChatIA" %}</h2>
+<a href="/chat/" class="btn btn-primary">{% trans "Go to chat" %}</a>
 {% endblock %}

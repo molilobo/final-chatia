@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
+from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),
     path('',views.home,name='home'),
     path('chat/',views.chat_home,name='chat_home'),
     path('chat/nueva/',views.nueva_conversacion,name='nueva_conversacion'),

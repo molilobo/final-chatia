@@ -1,0 +1,144 @@
+# Spanish translation for ChatIA
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "Home"
+msgstr "Principal"
+
+msgid "Chats"
+msgstr "Chats"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Help"
+msgstr "Ayuda"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Final Project"
+msgstr "Proyecto Final"
+
+msgid "Total conversations"
+msgstr "Conversaciones totales"
+
+msgid "Total messages"
+msgstr "Mensajes totales"
+
+msgid "Your conversations"
+msgstr "Tus conversaciones"
+
+msgid "Your messages"
+msgstr "Tus mensajes"
+
+msgid "Welcome to ChatIA"
+msgstr "Bienvenido a ChatIA"
+
+msgid "Go to chat"
+msgstr "Ir al chat"
+
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+msgid "Sign in to continue"
+msgstr "Inicia sesión para continuar"
+
+msgid "Sign in"
+msgstr "Entrar"
+
+msgid "New"
+msgstr "Nueva"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "You have no conversations yet. Create one!"
+msgstr "No tienes conversaciones aún. ¡Crea una!"
+
+msgid "Write the first message."
+msgstr "Escribe el primer mensaje."
+
+msgid "Write your message..."
+msgstr "Escribe tu mensaje..."
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "My Profile"
+msgstr "Mi Perfil"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Temperature (0.0 - 1.0)"
+msgstr "Temperatura (0.0 - 1.0)"
+
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+msgid "Help & Documentation"
+msgstr "Ayuda y Documentación"
+
+msgid "What is ChatIA?"
+msgstr "¿Qué es ChatIA?"
+
+msgid "ChatIA is a conversational assistant based on language models (LLM). You can have intelligent conversations and save your history."
+msgstr "ChatIA es un asistente conversacional basado en modelos de lenguaje (LLM). Puedes mantener conversaciones inteligentes y guardar tu historial."
+
+msgid "App structure"
+msgstr "Estructura de la aplicación"
+
+msgid "Home page"
+msgstr "Página principal"
+
+msgid "Conversations list"
+msgstr "Lista de conversaciones"
+
+msgid "New conversation"
+msgstr "Nueva conversación"
+
+msgid "User settings"
+msgstr "Configuración de usuario"
+
+msgid "This page"
+msgstr "Esta página"
+
+msgid "Admin panel"
+msgstr "Panel de administración"
+
+msgid "How to use the chat?"
+msgstr "¿Cómo usar el chat?"
+
+msgid "Sign in with your account"
+msgstr "Inicia sesión con tu cuenta"
+
+msgid "Create a new conversation"
+msgstr "Crea una nueva conversación"
+
+msgid "Write your message and press Send"
+msgstr "Escribe tu mensaje y pulsa Enviar"
+
+msgid "The assistant will reply in seconds"
+msgstr "El asistente responderá en segundos"
+
+msgid "Credits"
+msgstr "Créditos"
+
+msgid "Final Project 2025-2026"
+msgstr "Proyecto Final 2025-2026"
+
+msgid "Built with Django + NVIDIA API + HTMX + Bootstrap 5"
+msgstr "Desarrollado con Django + NVIDIA API + HTMX + Bootstrap 5"
+
+msgid "Developed by"
+msgstr "Realizado por"
