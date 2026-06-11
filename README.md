@@ -9,7 +9,7 @@
 * Cuenta en laboratorios: molilobo
 * Cuenta URJC: r.molina.2020@alumnos.urjc.es
 * Vídeo básico (URL): https://youtu.be/sDuqBDhEA2E
-* Vídeo parte opcional (URL): [PENDIENTE]
+* Vídeo parte opcional (URL): https://youtu.be/RBd-TONEZDA
 * Despliegue (URL): https://final-chatia.onrender.com
 * Usuarios y contraseñas:
   * pepe / 12345678p
